@@ -1,6 +1,13 @@
-<h1>Show data about all my favorite Pokemon</h1>
-<ul>
-  <% faves.forEach(fave=>{ %>
-    <li><%= fave.name %></li>
-  <% }) %>
-</ul>
+<h1>My favorite Pokemon</h1>
+<div class="container">
+  <div class="row">
+    <% faves.forEach(function(pokemon) { %>
+      <div class="card col-md-4">
+        <h2><%= pokemon.name %></h2>
+
+          <a href="/pokemon/<%=pokemon.name%>" class="btn btn-info" >More Info</a>
+
+      </div>
+    <% }); %>
+  </div>  
+</div>
