@@ -1,10 +1,13 @@
 {
-  "extends": "airbnb/legacy",
+"parserOptions": {
+        "ecmaVersion": 2017
+    },
 
   "env": {
     "browser": true,
     "jquery": true,
-    "node": true
+    "node": true,
+    "es6": true,
   },
 
   "globals": {},
