@@ -5,7 +5,7 @@ const axios = require('axios')
 
 // GET /pokemon - return a page with favorited Pokemon
 router.get('/', function(req, res) {
-  // TODO: Get all records from the DB and render to view
+  //Get all records from the DB and render to view
   db.pokemon.findAll()
   .then(arrayOfFaves=>{
     console.log(arrayOfFaves);
@@ -17,10 +17,9 @@ router.get('/', function(req, res) {
 router.get('/:id',(req,res)=>{
   const id = req.params.id.toLowerCase();
   const pokemonUrl = 'http://pokeapi.co/api/v2/pokemon/';
-  // Use request to call the API
+  // Use axios to call the API
   axios.get(pokemonUrl+id).then( function(apiResponse) {
     const pokemonData = apiResponse.data;
-    //res.send(pokemonData)
     res.render('pokemon/show', { pokemonData: pokemonData });
   })
 })
@@ -28,7 +27,7 @@ router.get('/:id',(req,res)=>{
 
 // POST /pokemon - receive the name of a pokemon and add it to the database
 router.post('/', function(req, res) {
-  // Get form data and add a new record to DB
+  // Get form data and add a new record to DB if not alreadt in DB
   db.pokemon.findOrCreate({
     where: {name: req.body.name}
   })
