@@ -8,7 +8,6 @@ router.get('/', function(req, res) {
   //Get all records from the DB and render to view
   db.pokemon.findAll()
   .then(arrayOfFaves=>{
-    console.log(arrayOfFaves);
     res.render('pokemon/index',{faves:arrayOfFaves})
   })
 });
