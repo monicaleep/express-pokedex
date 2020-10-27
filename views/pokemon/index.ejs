@@ -1,8 +1,8 @@
-<h1>My favorite Pokemon</h1>
 <div class="container">
-  <div class="row">
+  <h1 class='text-center'>My Favorite Pokemon</h1>
+  <div class="row justify-content-center">
     <% faves.forEach(function(pokemon) { %>
-      <div class="card col-md-4">
+      <div class="card col-md-4 m-2">
         <h2><%= pokemon.name %></h2>
 
           <form class="form-group" action="/pokemon/<%=pokemon.name%>/?_method=DELETE" method="post">

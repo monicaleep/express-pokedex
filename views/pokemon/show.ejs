@@ -1,19 +1,29 @@
 <div class="container">
+  <h1 class='text-center'><%=pokemonData.forms[0].name.toUpperCase()%></h1>
+
   <div class="row justify-content-center">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="card">
         <img class="card-img-top" src='<%= pokemonData.sprites.other['official-artwork']['front_default'] %>'>
         <div class="card-body">
           <h4 class="card-title">Detailed info about <%=pokemonData.forms[0].name%></h4>
           <h5>Abilities: </h5>
-          <ul class="list-group list-group-horizontal">
+          <ul class="list-group list-group-flush">
             <% pokemonData.abilities.forEach(ability=>{ %>
               <li class="list-group-item">
                 <%= ability.ability.name %>
               </li>
             <% }) %>
           </ul>
-          <h5>Height:</h5> <%= pokemonData.height%> inches
+          <br />
+          <div class="flex-container">
+            <h5>Height:</h5>
+            <p>
+              <%= pokemonData.height%> inches
+              </p>
+          </div>
+
+          <br />
           <h5>Types:</h5>
           <ul class="list-group list-group-flush">
             <% pokemonData.types.forEach(type=>{ %>
