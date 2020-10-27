@@ -35,11 +35,12 @@ router.post('/', function(req, res) {
 });
 
 router.delete('/:id',(req,res)=>{
-  const pokeToDelete = req.params.id.toLowerCase();
+  // get data from request parameter
+  const pokeToDelete = req.params.id;
+
   db.pokemon.destroy({
     where : {name:pokeToDelete}
   }).then(numrowsdeleted=>{
-    console.log(numrowsdeleted)
     res.redirect('/pokemon')
   })
 })
