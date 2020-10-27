@@ -23,7 +23,6 @@ router.get('/:id',(req,res)=>{
   })
 })
 
-
 // POST /pokemon - receive the name of a pokemon and add it to the database
 router.post('/', function(req, res) {
   // Get form data and add a new record to DB if not alreadt in DB
@@ -34,5 +33,15 @@ router.post('/', function(req, res) {
     res.redirect('/pokemon')
   })
 });
+
+router.delete('/:id',(req,res)=>{
+  const pokeToDelete = req.params.id.toLowerCase();
+  db.pokemon.destroy({
+    where : {name:pokeToDelete}
+  }).then(numrowsdeleted=>{
+    console.log(numrowsdeleted)
+    res.redirect('/pokemon')
+  })
+})
 
 module.exports = router;

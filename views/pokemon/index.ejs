@@ -5,9 +5,12 @@
       <div class="card col-md-4">
         <h2><%= pokemon.name %></h2>
 
-          <a href="/pokemon/<%=pokemon.name%>" class="btn btn-info" >More Info</a>
-
+          <form class="form-group" action="/pokemon/<%=pokemon.name%>/?_method=DELETE" method="post">
+            <a href="/pokemon/<%=pokemon.name%>" class="btn btn-info" >More Info</a>
+            <input type="Submit" name="" class='btn btn-danger' value="Delete">
+          </form>
       </div>
+
     <% }); %>
-  </div>  
+  </div>
 </div>
